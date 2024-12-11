@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block title %}Verify-Sign-Up{% endblock title %}
+{% block content %}
+<form method="POST" action="/verify-sign-up">
+    <div class="auth-section">
+        <p>Sign Up</p>
+        <input type="hidden" name="token" value="{{token}}" style="display: none;" readonly>
+        <button type="submit">Complete Sign Up</button>
+        <span>{{ var }}</span>
+        <div class="bottom-section">
+            <a href="/login">Already Have An Account?</a>
+        </div>
+    </div>
+</form>
+{% endblock content %}

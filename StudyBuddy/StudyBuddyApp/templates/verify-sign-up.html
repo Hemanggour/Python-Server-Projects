@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block title %}Study Buddy - Verify-Sign-Up{% endblock title %}
+{% block content %}
+    <div class="auth-container">
+        <div class="auth-card">
+            <form method="POST" action="/verify-sign-up">
+                {% csrf_token %}
+                <h2>Sign Up</h2>
+                <input type="hidden" name="token" value="{{token}}" style="display: none;" readonly>
+                <button type="submit">Complete Sign Up</button>
+                <span>{{ var }}</span>
+                <div class="bottom-section">
+                    <a href="/login">Already Have An Account?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

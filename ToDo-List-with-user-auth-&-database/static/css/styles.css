@@ -1,0 +1,185 @@
+/* Style for the entire body and container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+    /* Takes 90% of the viewport height */
+}
+
+#home-section {
+    display: flex;
+    justify-content: space-between;
+    font-size: small;
+}
+
+#editImg {
+    cursor: pointer;
+    display: none;
+}
+
+#username:hover #editImg {
+    display: inline;
+    margin-left: 5px;
+    height: 10px;
+    width: 10px;
+}
+
+/* Keep the form inline and matching the username's position */
+#username {
+    display: inline-flex;
+    align-items: center;
+}
+
+#editForm {
+    display: none; /* Initially hidden */
+    margin-left: 5px; /* Align it similarly to the username text */
+}
+
+#home-section>form>input {
+    font-size: inherit; /* Match the font size with the username text */
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#home-section>form>button {
+    margin-left: 5px;
+    padding: 2px 6px;
+}
+
+#home-section>a {
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    mix-blend-mode: difference
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Ensure input section stays at the top */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding-bottom: 10px;
+    z-index: 1;
+    /* Ensure it stays above the task list */
+}
+
+/* Input field and button styling */
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.auth-section {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+
+.auth-section>p {
+    justify-self: left;
+    margin-bottom: 10px;
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+.auth-section>a {
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    mix-blend-mode: difference;
+    font-size: small;
+    justify-self: left;
+    margin-left: 10px;
+}
+
+.bottom-section {
+    margin-top: 10px;
+}
+
+.bottom-section>a {
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    mix-blend-mode: difference;
+    font-size: small;
+}
+
+.auth-section>button {
+    font-size: medium;
+}
+
+/* Input field and button styling */
+.auth-section>input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.auth-section>span {
+    font-size: small;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Style the task list and make it scrollable */
+#taskList {
+    list-style: none;
+    padding: 0;
+    overflow-y: auto;
+    /* Enables vertical scrolling */
+    max-height: calc(100vh - 220px);
+    /* Adjust this based on your header and form height */
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 5px 10px 10px 10px;
+    /* margin-bottom: 10px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

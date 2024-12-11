@@ -1,0 +1,53 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chat.html */
+
+#headline {
+    margin: 10px;
+    font-size: x-large;
+}
+
+#messageBox {
+    position: fixed;
+    bottom: 10vh;
+    height: 10vh;
+    align-items: center;
+}
+
+#messageBox>input {
+    height: 5vh;
+    width: 50vw;
+    padding-left: 1vw;
+    font-size: medium;
+    text-overflow: auto;
+    border-radius: 2vh;
+}
+
+#messageBox>button {
+    position: fixed;
+    bottom: 6vh;
+    height: 5vh;
+    width: 6vw;
+}
+
+#messageArea{
+    border-bottom: 1px solid whitesmoke;
+    overflow: auto;
+    padding: 2vw;
+    justify-self: center;
+    height: 60vh;
+    width: 70vw;
+}

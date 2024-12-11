@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block title %}Study Buddy - Forgot-Email{% endblock title %}
+{% block content %}
+    <div class="auth-container">
+        <div class="auth-card">
+            <form method="POST" action="/forgot-email">
+                {% csrf_token %}
+                <h2>Forgot Email</h2>
+                <input type="text" name="username" placeholder="Username" required autofocus>
+                <input type="password" name="password" placeholder="Password" required autofocus>
+                <input type="email" name="newEmail" placeholder="New Email" required autofocus>
+                <button type="submit">Send Verification Link</button>
+                <span>{{ var }}</span>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

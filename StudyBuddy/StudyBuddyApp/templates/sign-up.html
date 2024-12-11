@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% block title %}Study Buddy - Sign-Up{% endblock title %}
+{% block content %}
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Sign Up</h2>
+            <form action="/sign-up" method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Full Name" required autofocus>
+                <input type="email" name="email" placeholder="Email" required autofocus>
+                <input type="password" name="password" placeholder="Password" required autofocus>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" required autofocus>
+                <button type="submit">Sign Up</button>
+            </form>
+            <span>{{ var }}</span>
+            <p>Already have an account? <a href="/login">Login</a></p>
+        </div>
+    </div>
+{% endblock content %}

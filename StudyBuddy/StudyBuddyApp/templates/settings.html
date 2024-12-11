@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+{% block title %}Study Buddy - Settings{% endblock title %}
+{% block content %}
+<div id="settings-container">
+    <h1>Settings</h1>
+
+    <!-- Profile Section -->
+    <div class="settings-section">
+        <h2>Profile Information</h2>
+        <form action="/update-username" method="POST" class="form">
+            {% csrf_token %}
+            <input type="hidden" name="userId" value="{{ userId }}" style="display: none;" readonly>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="newUsername" value="{{ username }}" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" value="{{ email }}" readonly required>
+            
+            <a class="btn save-btn" onclick="window.location.href='/forgot-email'">Change Email</a>
+            <button type="submit" class="btn save-btn">Save Changes</button>
+        </form>
+    </div>
+    
+    <!-- Goal Setting Section -->
+    <div class="settings-section">
+        <h2>Set Your Goal</h2>
+        <input type="text" value="{{ goal }}" readonly required>        
+        <button onclick="window.location.href='/set-goal'" class="btn save-btn">Select Your Goal</button>
+    </div>
+
+    <!-- Password Change Section -->
+    <div class="settings-section">
+        <h2>Change Password</h2>
+        <form action="/forgot-password" method="POST" class="form">
+            {% csrf_token %}
+            <input type="hidden" name="email" value="{{email}}" readonly required>
+
+            <label for="current-password">Current Password</label>
+            <input type="password" id="current-password" name="oldPassword" required>
+            
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" name="newPassword" required>
+            
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirmNewPassword" required>
+            
+            <button type="submit" class="btn save-btn">Change Password</button>
+        </form>
+    </div>
+
+    <!-- Other Settings -->
+    <div class="settings-section">
+        <h2>Other Settings</h2>
+        <p>Explore additional settings or reset your progress.</p>
+        <button class="btn danger-btn" onclick="confirmReset()">Reset All Progress</button>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+    // Confirm Reset Progress
+    function confirmReset() {
+        const confirmed = confirm("Are you sure you want to reset all your progress? This action cannot be undone.");
+        if (confirmed) {
+            // Redirect to a reset endpoint or handle reset logic
+            window.location.href = "/reset-progress";
+        }
+    }
+</script>
+{% endblock script %}

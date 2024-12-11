@@ -1,0 +1,917 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a5acd, #4c66e1);
+    color: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f4a261;
+}
+
+.hero {
+    text-align: center;
+    padding: 10rem 2rem 5rem;
+    background: linear-gradient(135deg, #4c66e1, #6a5acd);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.cta-buttons button {
+    background-color: #f4a261;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.cta-buttons button:hover {
+    background-color: #e76f51;
+    transform: scale(1.1);
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    color: #333;
+    width: 250px;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card button {
+    background-color: #4c66e1;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: #6a5acd;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    padding: 2rem;
+    color: white;
+    position: relative;
+}
+
+footer .social-icons a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+footer .social-icons a:hover {
+    color: #f4a261;
+}
+
+
+
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-card h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-card input {
+    margin: 0.8rem 0;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.auth-card input:focus {
+    border-color: #6a5acd;
+}
+
+.auth-card button {
+    background-color: #4c66e1;
+    color: white;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.auth-card button:hover {
+    background-color: #6a5acd;
+}
+
+.auth-card p {
+    margin-top: 1.5rem;
+}
+
+.auth-card a {
+    color: #4c66e1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-card a:hover {
+    color: #6a5acd;
+}
+
+
+
+.Goal-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Goal-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2193b0;
+}
+
+.Goal-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Goal-container h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.Goal-container div {
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.Goal-container input[type="radio"] {
+    margin-left: 10px;
+}
+
+.Goal-container label {
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.Goal-container button[type="submit"] {
+    padding: 10px 20px;
+    background: #2193b0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    align-self: center;
+}
+
+.Goal-container button[type="submit"]:hover {
+    background: #6dd5ed;
+}
+
+.Goal-container div:hover {
+    background: #f1f1f1;
+    transition: background 0.3s;
+}
+
+
+#learning {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+    background: linear-gradient(135deg, #e6f7ff, #d9f2d9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+#learningHead {
+    display: flex;
+    justify-content: space-between;
+}
+
+#learningHead>div {
+    display: flex;
+    padding-right: 2em;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    cursor: pointer;
+    margin-left: .5em;
+    height: 3vh;
+}
+
+.img:hover {
+    opacity: 50%;
+}
+
+#learningButton {
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: large;
+    text-decoration: none;
+    margin: 0 2rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+#learningButton:hover {
+    color: #f4a261;
+}
+
+#notesSection {
+    overflow: auto;
+    flex: 1;
+    height: 90vh;
+    background-color: #fefefe;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#notesSection ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#notesSection ul li {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #e9f5e9;
+    color: #333;
+    font-size: 16px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    #learning {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #notesSection {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+#notesSection input {
+    margin: 0.8rem 0;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#notesSection input:focus {
+    border-color: #6a5acd;
+}
+
+#notesSection button {
+    background-color: #4c66e1;
+    color: white;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+#notesSection button:hover {
+    background-color: #6a5acd;
+}
+
+/* Notes container styling */
+#notesSection ul {
+    list-style: none;
+    padding: 0;
+}
+
+.note {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Note description (clickable) */
+.note-description {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e3e3e3;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.note-description:hover {
+    background-color: #d3d3d3;
+}
+
+.toggle-icon {
+    font-size: 20px;
+    color: #666;
+    transition: transform 0.3s;
+}
+
+/* Note content (hidden by default with smooth transition) */
+.note-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+.note-content.active {
+    max-height: 50vh;
+    /* Adjust based on the content size */
+    line-height: 25px;
+    overflow: auto;
+    padding: 10px;
+}
+
+/* Form styling */
+.form {
+    margin: 10px 0;
+}
+
+.form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form button:hover {
+    background-color: #0056b3;
+}
+
+#username {
+    /* display: inline-flex; */
+    margin-left: 10px;
+}
+
+
+/* AI Chat Section Styling */
+#AIChatSection {
+    width: 50%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+#AIChatSection h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Chat Box */
+#chatBox {
+    height: 60vh;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Individual Chat Message */
+.chat-message {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.chat-message .message-content {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+
+/* User Messages */
+.user-message .message-content {
+    background-color: #007bff;
+    line-height: 25px;
+    color: white;
+    text-align: right;
+    margin-left: auto;
+}
+
+/* AI Messages */
+.ai-message .message-content {
+    background-color: #f1f1f1;
+    line-height: 25px;
+    color: #333;
+    text-align: left;
+    margin-right: auto;
+}
+
+/* Chat Icon */
+.chat-icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Typing Indicator */
+#typingIndicator {
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    color: #666;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Input Form */
+#chatForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#chatForm button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#chatForm button:hover {
+    background-color: #0056b3;
+}
+
+#AddToNote {
+    background-color: #ff4d4d;
+    margin-left: 10px;
+}
+
+#AddToNote:hover {
+    background-color: #e60000;
+}
+
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Settings Section */
+
+#settings-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+#settings-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Section Styles */
+.settings-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.settings-section h2 {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.settings-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.settings-section input,
+.settings-section select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.settings-section .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.settings-section .btn:hover {
+    background-color: #0056b3;
+}
+
+.settings-section .danger-btn {
+    background-color: #dc3545;
+}
+
+.settings-section .danger-btn:hover {
+    background-color: #a71d2a;
+}
+
+/* Quiz Section */
+
+#quiz-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#quiz-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Question Section */
+.quiz-question {
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    color: #333;
+}
+
+.quiz-question ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quiz-question li {
+    margin: 8px 0;
+}
+
+/* Submit Button */
+#quiz-form .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+#quiz-form .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Results Section */
+#quiz-results {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#quiz-results h2 {
+    text-align: center;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+#quiz-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+#quiz-results li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+#quiz-results .correct {
+    color: #28a745;
+    font-weight: bold;
+}
+
+#quiz-results .incorrect {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+#quiz-results p {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+
+/* Quiz Form */
+
+#formStart {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Form Elements */
+#quizForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels */
+#quizForm label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Select Dropdowns */
+#quizForm select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+#quizForm select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+}
+
+/* Number Input */
+#amountInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+#amountInput:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit Button */
+#quizForm .btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+#quizForm .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+
+#quizForm .btn:active {
+    background-color: #003d80;
+}
+
+/* Form Responsiveness */
+@media (max-width: 768px) {
+    div {
+        padding: 15px;
+    }
+
+    #quizForm select,
+    #amountInput {
+        font-size: 14px;
+    }
+
+    #quizForm .btn {
+        font-size: 14px;
+    }
+}
+
+#resultButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#resultButton:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% block title %}Study Buddy - Login{% endblock title %}
+{% block content %}
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                {% csrf_token %}
+                <input type="email" name="email" placeholder="Email" required autofocus>
+                <input type="password" name="password" placeholder="Password" required autofocus>
+                <button type="submit">Login</button>
+            </form>
+            <span>{{ var }}</span>
+            <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
+            <div>  
+                <a href="/forgot-password">Forgot Password?</a>
+            </div>
+            <div>
+                <a href="/forgot-email">Forgot Email?</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

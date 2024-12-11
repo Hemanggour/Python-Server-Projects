@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+{% block title %}To-Do-List{% endblock title %}
+{% block content %}
+{% if loggedIn == True %}
+<div id="home-section">
+    <div id="username">
+        <span id="nameDisplay">{{username}}</span>
+        <img id="editImg" src="..\static\images\edit.png" alt="Edit Image">
+    </div>
+    <form id="editForm" action="/update-username" method="POST">
+        <input type="text" name="newUsername" id="usernameInput" value="{{username}}">
+        <input type="hidden" name="userId" value="{{userId}}" style="display: none;" readonly>
+        <button type="submit">Save</button>
+    </form>
+    <a href="/logout" id="logout">Logout!</a>
+</div>
+<h1>To-Do List</h1>
+<form method="POST" action="/">
+    <div class="input-section">
+        <input type="text" name="task" id="taskInput" placeholder="Add a new task...">
+        <input type="hidden" name="userId" value="{{userId}}" style="display: none;" readonly>
+        <button type="submit">Add Task</button>
+    </div>
+</form>
+<ul id="taskList">
+    {% for task in range(0, length) %}
+    <li>
+        <span>{{ tasks[task] }}</span>
+        <form method="POST" action="/delete-task" style="display: inline;">
+            <input type="hidden" name="task_to_delete" value="{{ tasks[task] }}">
+            <input type="hidden" name="taskId_to_delete" value="{{ tasksIds[task] }}" style="display: none;" readonly>
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+    <script>
+        // Get elements
+        const nameDisplay = document.getElementById('nameDisplay');
+        const editImg = document.getElementById('editImg');
+        const editForm = document.getElementById('editForm');
+        const usernameInput = document.getElementById('usernameInput');
+
+        // Show the input field when clicking the image
+        editImg.addEventListener('click', function() {
+            // Hide the current username and show the form
+            nameDisplay.style.display = 'none';
+            editForm.style.display = 'inline-flex';  // Ensures the form is inline
+
+            // Focus the input field for immediate editing
+            usernameInput.focus();
+        });
+    </script>
+{% else %}
+<script type="text/javascript">
+    window.location.href = "/login"
+</script>
+{% endif %}
+{% endblock content %}

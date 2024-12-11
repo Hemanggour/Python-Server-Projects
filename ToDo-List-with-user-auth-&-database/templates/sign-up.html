@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block title %}Sign-Up{% endblock title %}
+{% block content %}
+<form method="POST" action="/sign-up">
+    <div class="auth-section">
+        <p>Sign Up</p>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Create Password" required>
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+        <button type="submit">Send verification Link</button>
+        <span>{{ var }}</span>
+        <div class="bottom-section">
+            <a href="/login">Already Have An Account?</a>
+        </div>
+    </div>
+</form>
+{% endblock content %}

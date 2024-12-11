@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+{% block title %}Chat{% endblock title %}
+{% if loggedIn == True %}
+    {% block content %}
+        <form method="POST" action="/chat/deleteChat" style="display: inline;">
+            {% csrf_token %}
+            <input type="hidden" name="sessionId" value="{{ sessionId }}" style="display: none;" readonly>
+            <button class="delete" type="submit">Delete Chat Session</button>
+        </form>
+        <ul class"center" id="messageArea">
+            {% for message in messages %}
+            <li>
+                <span>{{message.chats}}</span>
+                <form method="POST" action="/chat/deleteMessage" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="messIdToDelete" value="{{ message.id }}" style="display: none;" readonly>
+                    <button class="delete" type="submit">Delete</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        <form action="/chat/" method="POST">
+            {% csrf_token %}
+            <div class="center">
+                <div id="messageBox" class="center">
+                    <input type="text" name="userMessage" placeholder="Message..." autofocus></input>
+                    <input type="hidden" name="sessionId" value="{{sessionId}}" style="display: none;" readonly>
+                    <button>Send</button>
+                </div>
+            </div>
+        </form>
+    {% endblock content %}
+{% else %}
+    {% block script %}
+        <script type="text/javascript">
+            window.location.href = "/login"
+        </script>
+    {% endblock script %}
+{% endif %}

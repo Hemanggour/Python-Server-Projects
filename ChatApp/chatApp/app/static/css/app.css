@@ -1,0 +1,117 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chat.html */
+
+#headline {
+    margin: 10px;
+    font-size: x-large;
+}
+
+#messageBox {
+    position: fixed;
+    bottom: 10vh;
+    height: 10vh;
+    align-items: center;
+}
+
+#messageBox>input {
+    height: 5vh;
+    width: 50vw;
+    padding-left: 1vw;
+    font-size: medium;
+    text-overflow: auto;
+    border-radius: 2vh;
+}
+
+#messageBox>button {
+    position: fixed;
+    bottom: 6vh;
+    height: 5vh;
+    width: 6vw;
+}
+
+#messageArea{
+    border-bottom: 1px solid whitesmoke;
+    overflow: auto;
+    padding: 2vw;
+    justify-self: center;
+    height: 60vh;
+    width: 70vw;
+}
+
+/* Auth-Section */
+
+.auth-section{
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding-bottom: 10px;
+}
+
+.auth-section>p {
+    justify-self: left;
+    margin-bottom: 10px;
+    font-size: x-large;
+    font-weight: 500;
+}
+
+/* .auth-section>a {
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    mix-blend-mode: difference;
+    font-size: small;
+    justify-self: left;
+    margin-left: 10px;
+} */
+
+.bottom-section {
+    justify-self: center;
+    margin-top: 10px;
+}
+
+.bottom-section>a {
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    mix-blend-mode: difference;
+    font-size: medium;
+}
+
+.auth-section>input {
+    flex: 1;
+    width: 20vw;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.auth-section>button{
+    cursor: pointer;
+    height: 4vh;
+}
+
+.container{
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete{
+    cursor: pointer;
+    background: none;
+    border: none;
+}

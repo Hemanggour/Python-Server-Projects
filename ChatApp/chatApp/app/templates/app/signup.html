@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% block title %}Sign-Up{% endblock title %}
+{% block content %}
+<div class="container">
+    <form method="POST" action="/chat/sign-up">
+        {% csrf_token %}
+        <div class="auth-section">
+            <p>Create Chat Session</p>
+            <input type="text" name="chatName" placeholder="Chat Name" required>
+            <input type="password" name="password" placeholder="Create Password" required>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Create Session</button>
+            <span>{{ var }}</span>
+            <div class="bottom-section">
+                <a href="/chat/login">Already Have An Session?</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

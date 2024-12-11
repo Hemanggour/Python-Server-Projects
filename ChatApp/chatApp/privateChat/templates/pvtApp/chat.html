@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Chat{% endblock title %}
+{% block content %}
+    <div>Share Chat Link With Your Friends</div>
+    <form action="/privateChat/deleteChat" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="token" value="{{token}}" style="display: none;" readonly>
+        <button>Delete Chat</button>
+    </form>
+
+    <ul class"center" id="messageArea">
+        {% for message in messages %}
+        <li>
+            <span>{{message}}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    <form action="/privateChat/chat" method="POST">
+        {% csrf_token %}
+
+        <div class="center">
+            <div id="messageBox" class="center">
+                <input type="text" name="message" required autofocus>
+                <input type="hidden" name="token" value="{{token}}" style="display: none;" readonly>
+                <button type="submit">Send</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

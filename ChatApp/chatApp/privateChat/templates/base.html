@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    {% block topScript %}{% endblock topScript %}
+    <link href="{% static "css/pvtApp.css" %}" rel="stylesheet">
+</head>
+<body>
+    <div id="headline" class="center">
+        <h2>Private Chat App</h2>
+    </div>
+    <div>
+        {% block content %}{% endblock content %}
+    </div>
+        {% block script %}{% endblock script %}
+</body>
+</html>

@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+{% block title %}Study Buddy - Home{% endblock title %}
+{% block content %}
+{% if loggedIn == True %}
+    <header>
+        <h1>AI Study Buddy</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#subjects">Subjects</a>
+            <a href="#progress">Progress</a>
+            <a href="/settings">Settings</a>
+            <a href="#about">About Us</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to AI Study Buddy</h2>
+        <p>Your Personalized Learning Partner!</p>
+        <div class="cta-buttons">
+            <button onclick="location.href='/learning'" type="button">Start Learning</button>
+            <button onclick="location.href='/quiz'">Take a Quiz</button>
+            <button onclick="location.href='/progress'">View Progress</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <h3>Explore Subjects</h3>
+            <p>Choose your favorite topic to start learning.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <h3>Quick Quiz</h3>
+            <p>Test your knowledge with a fun quiz.</p>
+            <button>Start Quiz</button>
+        </div>
+        <div class="card">
+            <h3>Track Progress</h3>
+            <p>Track your study progress and achievements.</p>
+            <button>View Progress</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AI Study Buddy. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+{% else %}
+<script type="text/javascript">
+    window.location.href = "/login"
+</script>
+{% endif %}
+{% endblock content %}
+{% block script %}
+<script>
+    const userGoal = "{{ goal }}";
+    if (userGoal == "Goal")
+    {
+        if (confirm("Set You Goal !!"))
+        {
+            window.location.href = '/set-goal'
+        }
+    }
+</script>
+{% endblock script %}

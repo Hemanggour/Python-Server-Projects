@@ -1,0 +1,226 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Study Buddy - Learning{% endblock title %}
+{% block content %}
+<div>
+    <div id="learningHead">
+        <h2 id="username">{{ username }} || {{ goal }}</h2>
+        <div>
+            <!-- <div id="timerDisplay">
+                <span class="digit" id="hr">00</span>
+                <span class="txt"> Hr</span>
+                <span class="digit" id="min">00</span>
+                <span class="txt"> Min</span>
+                <span class="digit" id="sec">00</span>
+                <span class="txt"> Sec &nbsp</span>
+                <span class="digit" id="count" style="display: none;">00</span>
+            </div>
+            <div id="timerControl">
+                <img id="start" class="img" src={% static "images/start.png" %} alt="Start"></img>
+                <img id="stop" class="img" src={% static "images/pause.png" %} alt="Pause"></img>
+                <img id="reset" class="img" src={% static "images/reset.png" %} alt="Reset"></img>    
+            </div> -->
+            <button id="learningButton" onclick="window.location.replace('/')">Home</button>
+            <!-- <img id="toggleScreen" src="{% static "images/expand.png" %}">-->
+        </div>
+    </div>
+    <div id="learning">
+        <div id="notesSection">
+            <!-- Form to Add Notes -->
+            <div>
+                <form action="/learning" method='POST' class="form">
+                    {% csrf_token %}
+                    <input type="text" name="noteDescription" id="noteInput" placeholder="Add a note description..." required autofocus>
+                    <input type="text" name="note" id="noteInput" placeholder="Add a new note..." required autofocus>
+                    <input type="hidden" name="userId" value="{{ userId }}" style="display: none;" readonly>
+                    <button type="submit">Add Note</button>
+                </form>
+            </div>
+
+            <!-- Notes List -->
+            <div>
+                <ul>
+                    {% for n in notes %}
+                    <li class="note">
+                        <div class="note-description" onclick="toggleNoteContent(this)">
+                            <h3>{{ n.notedescription }}</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="note-content">
+                            <p>{{ n.notes }}</p>
+                            <form action="/delete-note" method="POST" class="form">
+                                {% csrf_token %}
+                                <input type="hidden" name="userId" value="{{ userId }}" style="display: none;" readonly>
+                                <input type="hidden" name="noteId" value="{{ n.id }}" style="display: none;" readonly>
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <!-- AI Section -->
+        
+        <div id="AIChatSection">
+            <h2>AI Chat</h2>
+            <div id="chatBox">
+                <!-- Messages dynamically rendered here -->
+                {% if User and Model %}
+                    <div class="chat-message user-message">
+                        <div class="message-content">
+                            <span class="chat-icon">👤</span>
+                            <p>{{ User }}</p>
+                        </div>
+                    </div>
+                    <div class="chat-message ai-message">
+                        <div class="message-content">
+                            <span class="chat-icon">🤖</span>
+                            <p>{{ Model }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="chat-message user-message">
+                        <div class="message-content">
+                            <span class="chat-icon">👤</span>
+                            <p>Hello, {{username}} !!</p>
+                        </div>
+                    </div>
+                    <div class="chat-message ai-message">
+                        <div class="message-content">
+                            <span class="chat-icon">🤖</span>
+                            <p>How can i help you today ?</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <form id="chatForm" action="/chat" method="POST">
+                {% csrf_token %}
+                <input type="text" name="userMessage" id="chatInput" placeholder="Type your message..." required autofocus>
+                <button type="submit">Send</button>
+            </form>
+            <form action="/learning" method='POST' class="form" id="chatForm">
+                {% csrf_token %}
+                <input type="hidden" name="noteDescription" id="noteInput" value="{{ User }}" required autofocus>
+                <input type="hidden" name="note" id="noteInput" value="{{ Model }}" required autofocus>
+                <input type="hidden" name="userId" value="{{ userId }}" style="display: none;" readonly>
+                <button type="submit" id="AddToNote">Add To Note</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script>
+    function toggleNoteContent(descriptionElement) {
+        // Find the note content div
+        const noteContent = descriptionElement.nextElementSibling;
+        const toggleIcon = descriptionElement.querySelector('.toggle-icon');
+    
+        // Toggle the active class for smooth transitions
+        if (noteContent.classList.contains('active')) {
+            noteContent.classList.remove('active');
+            toggleIcon.textContent = '+'; // Update icon to +
+        } else {
+            noteContent.classList.add('active');
+            toggleIcon.textContent = '-'; // Update icon to -
+        }
+    }
+
+    let startBtn = document.getElementById('start');
+    let stopBtn = document.getElementById('stop');
+    let resetBtn = document.getElementById('reset');
+
+    let hour = 00;
+    let minute = 00;
+    let second = 00;
+    let count = 00;
+
+    startBtn.addEventListener('click', function () {
+        timer = true;
+        stopWatch();
+    });
+
+    stopBtn.addEventListener('click', function () {
+        timer = false;
+    });
+
+    resetBtn.addEventListener('click', function () {
+        timer = false;
+        hour = 0;
+        minute = 0;
+        second = 0;
+        count = 0;
+        document.getElementById('hr').innerHTML = "00";
+        document.getElementById('min').innerHTML = "00";
+        document.getElementById('sec').innerHTML = "00";
+        document.getElementById('count').innerHTML = "00";
+    });
+
+
+function stopWatch() {
+    if (timer) {
+        count++;
+
+        if (count == 100) {
+            second++;
+            count = 0;
+        }
+
+        if (second == 60) {
+            minute++;
+            second = 0;
+        }
+
+        if (minute == 60) {
+            hour++;
+            minute = 0;
+            second = 0;
+        }
+
+        let hrString = hour;
+        let minString = minute;
+        let secString = second;
+        let countString = count;
+
+        if (hour < 10) {
+            hrString = "0" + hrString;
+        }
+
+        if (minute < 10) {
+            minString = "0" + minString;
+        }
+
+        if (second < 10) {
+            secString = "0" + secString;
+        }
+
+        if (count < 10) {
+            countString = "0" + countString;
+        }
+
+        document.getElementById('hr').innerHTML = hrString;
+        document.getElementById('min').innerHTML = minString;
+        document.getElementById('sec').innerHTML = secString;
+        document.getElementById('count').innerHTML = countString;
+        setTimeout(stopWatch, 10);
+    }
+}
+
+
+/*
+    const toggleScreen = document.getElementById("toggleScreen");
+
+    toggleScreen.addEventListener("click", function() {
+      if (document.fullscreenElement) {
+            toggleScreen.src = "{% static 'images/expand.png' %}"
+            document.exitFullscreen();
+        } else {
+            toggleScreen.src = "{% static 'images/minimize.png' %}"
+            document.documentElement.requestFullscreen(); 
+      }
+    });
+*/
+</script>
+{% endblock script %}

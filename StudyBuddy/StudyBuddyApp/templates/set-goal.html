@@ -1,0 +1,97 @@
+{% extends "index.html" %}
+{% block title %}Study Buddy - Set Goal{% endblock title %}
+{% block content %}
+    <div class="Goal-container">
+        <h2>Set Your Goal</h2>
+        <form action="/set-goal" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="userId" value="{{userId}}" style="display: none;" readonly>
+            <div>
+                <h3>School And College Education</h3>
+                <input type="radio" id="School" name="goal" value="School">
+                <label for="School">School |</label>
+                <input type="radio" id="College" name="goal" value="College">
+                <label for="College">College |</label>
+            </div>
+
+            <div>
+                <h3>Competitive Exams</h3>
+                <input type="radio" id="JEE" name="goal" value="JEE">
+                <label for="JEE">JEE |</label>
+                <input type="radio" id="NEET" name="goal" value="NEET">
+                <label for="NEET">NEET |</label>
+                <input type="radio" id="GATE" name="goal" value="GATE">
+                <label for="GATE">GATE |</label>
+                <input type="radio" id="CAT" name="goal" value="CAT">
+                <label for="CAT">CAT |</label>
+                <input type="radio" id="UPSC" name="goal" value="UPSC">
+                <label for="UPSC">UPSC |</label>
+                <input type="radio" id="SSC" name="goal" value="SSC">
+                <label for="SSC">SSC |</label>
+                <input type="radio" id="SSB" name="goal" value="SSB">
+                <label for="SSB">SSB |</label>
+                <input type="radio" id="IBPS" name="goal" value="IBPS">
+                <label for="IBPS">IBPS PO |</label>
+                <input type="radio" id="SBI" name="goal" value="SBI">
+                <label for="SBI">SBI PO/Clerk |</label>
+                <input type="radio" id="NDA" name="goal" value="NDA">
+                <label for="NDA">NDA |</label>
+                <input type="radio" id="CDS" name="goal" value="CDS">
+                <label for="CDS">CDS |</label>
+                <input type="radio" id="AFCAT" name="goal" value="AFCAT">
+                <label for="AFCAT">AFCAT |</label>
+                <input type="radio" id="PSC" name="goal" value="PSC">
+                <label for="PSC">PSC Exams |</label>
+            </div>
+
+            <div>
+                <h3>International Competitive Exams</h3>
+                <input type="radio" id="SAT" name="goal" value="SAT">
+                <label for="SAT">SAT |</label>
+                <input type="radio" id="ACT" name="goal" value="ACT">
+                <label for="ACT">ACT |</label>
+                <input type="radio" id="GRE" name="goal" value="GRE">
+                <label for="GRE">GRE |</label>
+                <input type="radio" id="GMAT" name="goal" value="GMAT">
+                <label for="GMAT">GMAT |</label>
+                <input type="radio" id="IELTS" name="goal" value="IELTS">
+                <label for="IELTS">IELTS (International English Language Testing System) |</label>
+                <input type="radio" id="TOEFL" name="goal" value="TOEFL">
+                <label for="TOEFL">TOEFL (Test of English as a Foreign Language) |</label>
+                <input type="radio" id="PTE" name="goal" value="PTE">
+                <label for="PTE">PTE (Pearson Test of English) |</label>
+            </div>
+
+            <div>
+                <h3>Professional and Certification Exams</h3>
+                <input type="radio" id="CA" name="goal" value="CA">
+                <label for="CA">CA |</label>
+                <input type="radio" id="CFA" name="goal" value="CFA">
+                <label for="CFA">CFA (Chartered Financial Analyst) |</label>                    
+                <input type="radio" id="AWS" name="goal" value="AWS">
+                <label for="AWS">AWS |</label>
+                <input type="radio" id="Azure" name="goal" value="Azure">
+                <label for="Azure">Azure |</label>
+                <input type="radio" id="Google Cloud" name="goal" value="Google Cloud">
+                <label for="Google Cloud">Google Cloud |</label>
+                <input type="radio" id="Cisco" name="goal" value="Cisco">
+                <label for="Cisco">Cisco |</label>
+                <input type="radio" id="Competitive Coding" name="goal" value="Competitive Coding">
+                <label for="Competitive Coding">Competitive Coding |</label>
+                <input type="radio" id="CLAT" name="goal" value="CLAT">
+                <label for="CLAT">CLAT (Common Law Admission Test) |</label>
+                <input type="radio" id="LSAT" name="goal" value="LSAT">
+                <label for="LSAT">LSAT (Law School Admission Test) |</label>
+            </div>
+
+            <div>
+                <h3>Computer Programming / Coding</h3>
+                <input type="radio" id="Programming" name="goal" value="Programming">
+                <label for="Programming">Computer Programming |</label>
+            </div>
+            
+            <button type="submit">Set Goal</button>
+        </form>
+    </div>
+
+{% endblock content %}
